@@ -1,4 +1,5 @@
 # Introduction to Obstacle Avoidance
+import math
 import numpy as np
 
 file_points = open("mission.waypoints", "r")
@@ -8,13 +9,14 @@ points = np.zeros((point_number, 3))  # point number; lat, long, alt
 #
 home_point = [39.589000, -74.9507, 1]
 #
-temp_point_number = 10;
-temp_points = np.zeros((point_number, temp_point_number, 3))  # point that vehicle reaches; temp_point number; lat, long, alt
-#
+temp_point_number = 10
+temp_points = np.zeros((temp_point_number, 3))  # temp_point number; lat, long, alt
 file_obstacles = open("obstacles.poly", "r")
 lines_obstacles = np.asarray(file_obstacles.read().split('\n'))
 obstacle_number = len(lines_obstacles) - 1
 obstacles = np.zeros((obstacle_number, 5))  # obstacle number; lat, long, alt, radius, speed
+#
+earth_radius = 6371000  # earth`s radius in meter
 
 
 def get_points():
@@ -24,6 +26,7 @@ def get_points():
         points[i, 1] = values[9]
         points[i, 2] = values[10]
     print(points)
+    return points
 
 
 def get_obstacles():
@@ -36,40 +39,30 @@ def get_obstacles():
         obstacles[i, 3] = values[3]
         obstacles[i, 4] = values[4]
     print(obstacles)
+    return obstacles
 
 
-def temp_points(points):
-    for i in range(0, obstacle_number):
-        for j in range(0, temp_point_number):
-            if i == 0:
-                temp_points[i, j, 0] += (points[i, 0] - home_point[0]) / temp_point_number * j
-                temp_points[i, j, 1] += (points[i, 1] - home_point[1]) / temp_point_number * j
-                temp_points[i, j, 2] += (points[i, 2] - home_point[2]) / temp_point_number * j
-
-            temp_points[i, j, 0] += (points[i, 0] - points[i - 1, 0]) / temp_point_number * j
-            temp_points[i, j, 1] += (points[i, 1] - points[i - 1, 1]) / temp_point_number * j
-            temp_points[i, j, 2] += (points[i, 2] - points[i - 1, 2]) / temp_point_number * j
+def get_temp_points(passed_point, reaching_point):
+    for i in range(0, temp_point_number):
+        temp_points[i, 0] = passed_point + (reaching_point[0] - passed_point[0]) / temp_point_number * i
+        temp_points[i, 1] = passed_point + (reaching_point[1] - passed_point[1]) / temp_point_number * i
+        temp_points[i, 2] = passed_point + (reaching_point[2] - passed_point[2]) / temp_point_number * i
+    return temp_points
 
 
-def det_intersections(points, temp_points, obstacles):
+def get_distance(first_point, second_points):
+    lat1 = first_point[0] / 180 * math.pi  # coordinate to radian
+    lng1 = first_point[1] / 180 * math.pi  # coordinate to radian
+    lat2 = first_point[0] / 180 * math.pi  # coordinate to radian
+    lng2 = first_point[1] / 180 * math.pi  # coordinate to radian
+    dlat = lat2 - lat1  # latitute difference in radian
+    dlong = lng2 - lng1  # longitute difference in radian
 
-    ### Haversine Formula
-
-
-
-
-
-
-
-
-
-#Obstaclelarin hareketli ve hareketsiz olanlari ayiralim
-#Hareketsiz olanlari ayirdiktan sonra gecen seneki koda benzer sekilde bi algoritma yazalim
-#Waypointler arasinda giderken onundeki tahmini hareket noktalarini belirleyelim
-#Waypointler arasinda giderken hangi hareketsiz engellere carptigini belirleyelim
+    a = math.pow(math.sin(dlat / 2), 2) + math.cos(lat1) * math.cos(lat2) * math.pow(math.sin(dlong / 2), 2)  # Haversine Formula
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))  # Haversine Formula
+    distance = earth_radius * c
+    return distance
 
 
-#VEYAA
-#Hareketsiz ve hareketli diye ayirmadan direkt olarak onune noktalar koyarak ilerledigi dusunuruz tahmini konumlarla
-#Hangi engellere carpacagini belirleriz
-#Bundan onceyse kisa bir sure engellerin hareketini izleyerek onlarin yollarinin ogrenebilirsek cok guzel olur!!!!
+def get_intersections(points, temp_points, obstacles):
+
