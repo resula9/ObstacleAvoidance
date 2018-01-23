@@ -1,4 +1,4 @@
-# Introduction to Obstacle Avoidance
+# Json Exapmle for Obstacle Avoidance
 import math
 import numpy as np
 
