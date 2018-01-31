@@ -18,7 +18,7 @@ obstacle_number = len(lines_obstacles) - 1
 obstacles = np.zeros((obstacle_number, 5))  # obstacle number; lat, long, alt, radius, speed
 #
 global trouble_points
-trouble_points = np.zeros((temp_point_number, 4))  # temp_point number; lat, long, alt, obstacle number
+trouble_points = np.zeros((temp_point_number, 5))  # temp_point number; lat, long, alt, control, obstacle number
 #
 earth_radius = 6371000  # earth`s radius in meter
 
@@ -78,7 +78,8 @@ def get_intersections(temp_points, obstacles):
                 trouble_points[i, 0] = temp_points[i, 0]
                 trouble_points[i, 1] = temp_points[i, 1]
                 trouble_points[i, 2] = temp_points[i, 2]
-                trouble_points[i, 3] = j
+                trouble_points[i, 3] = 1
+                trouble_points[i, 4] = j
 
 #  temp point sayisini aradaki mesafeye gore belirlemek lazim
 #  temp waypoint konumalarini aracin  hizina ve gore tahmini yerlere atamak
