@@ -19,4 +19,6 @@ def object_decoder(obj):
 x = json.loads('{"__type__": "User", "name": {"name1": "john", "name2": "smith"}, "username": ["j", "s"], "passw": "123"}', object_hook=object_decoder)
 
 
-print x.name.get("name2")
+print x.username[0]
+# print x.name.get("name2")
+
