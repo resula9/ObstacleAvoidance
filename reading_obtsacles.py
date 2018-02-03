@@ -15,8 +15,11 @@ class Obstacle(object):
         obstacledata = json.loads(json_content)
         for key, value in obstacledata.items():
             self.__dict__[key] = value
-
-        self.__dict__('stationary_obstacles')[i].get('altitude') =
+        for i in range (0, len(self.__dict__['stationary_obstacles'])):
+            real_height = self.stationary_obstacles[i].get('altitude')
+            cylinder_radius = self.stationary_obstacles[i].get('radius')
+            estimated_altitude = int(real_height) - int(cylinder_radius)
+            self.__dict__['stationary_obstacles'][i]['altitude'] = str(estimated_altitude)
 
 
 file1 = open("obstacles.json", "r")
@@ -27,6 +30,6 @@ data = str(data).replace('cylinder_height', 'altitude')
 data = str(data).replace('cylinder_radius', 'radius')
 
 obstacle = Obstacle(data)
-print obstacle.moving_obstacles[1].get('altitude')
+print obstacle.stationary_obstacles[0].get('altitude')
 
 

@@ -5,6 +5,12 @@ import json
 
 '''
 Drone-kit ten aracin konum bilgisi alinarak vehicle_point degiskenine atanacak
+temp point sayisi aradaki mesafeye gore belirlenecek
+Obtsacle lar moving ve stationary olarak ayrilacak
+stationary olanlar en bastan rotada waypoint eklenerek halledilecek
+boylece islem yuku olmaktan cikacaklar ve dict kullanimi kolaylasacak
+bunun icin programin basinda stationary ler icin bi fonksiyon yazmak gerekiyor
+movingler icinse eski temp_point sistemiyle devam ediyoruz simdilik
 
 '''
 
@@ -23,6 +29,11 @@ class Obstacle(object):
         data = json.loads(json_content)
         for key, value in data.items():
             self.__dict__[key] = value
+        for i in range (0, len(self.__dict__['stationary_obstacles'])):
+            real_height = self.stationary_obstacles[i].get('altitude')
+            cylinder_radius = self.stationary_obstacles[i].get('radius')
+            estimated_altitude = int(real_height) - int(cylinder_radius)
+            self.__dict__['stationary_obstacles'][i]['altitude'] = str(estimated_altitude)
 
 
 #
@@ -52,11 +63,11 @@ def get_temp_points(vehicle_position, reaching_point):
     return temp_points
 
 
-def get_distance(first_point, second_point):
-    lat1 = first_point[0] / 180 * math.pi  # coordinate to radian
-    lng1 = first_point[1] / 180 * math.pi  # coordinate to radian
-    lat2 = second_point[0] / 180 * math.pi  # coordinate to radian
-    lng2 = second_point[1] / 180 * math.pi  # coordinate to radian
+def get_distance(first_lat, first_lng, second_lat, second_lng):
+    lat1 = first_lat / 180 * math.pi  # coordinate to radian
+    lng1 = first_lng / 180 * math.pi  # coordinate to radian
+    lat2 = second_lat / 180 * math.pi  # coordinate to radian
+    lng2 = second_lng / 180 * math.pi  # coordinate to radian
     dlat = lat2 - lat1  # latitute difference in radian
     dlong = lng2 - lng1  # longitute difference in radian
 
@@ -69,11 +80,13 @@ def get_distance(first_point, second_point):
 
 def get_intersections(temp_points, obstacle):
     for i in range(0, temp_point_number):
-        for j in range(0, len(obstacle.stationary_obstacles) + len(obstacle.moving_obstacles)):
-            if get_distance(temp_points[i], obstacles[j]) < obstacles[j, 2] * 1.2:
+        for j in range(0, len(obstacle.moving_obstacles)):
+            if get_distance(temp_points[i, 0], temp_points[i, 1], obstacle.moving_obstacles[j].latitude,
+                            obstacle.moving_obstacles[j].longitude) < obstacle.moving_obstacles[j].radius * 1.2:
                 global trouble_points
                 trouble_points[i, 0] = temp_points[i, 0]
                 trouble_points[i, 1] = temp_points[i, 1]
                 trouble_points[i, 2] = temp_points[i, 2]
                 trouble_points[i, 3] = 1
                 trouble_points[i, 4] = j
+                print('obtacle is trouble')
