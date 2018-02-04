@@ -4,17 +4,27 @@ import numpy as np
 import json
 import time
 import dronekit_sitl
-from dronekit import connect
+from dronekit import connect, Command
+import argparse
 
 
 '''
+Waypoint verisi kullanilarak mission olusturulacak ve otonom ucus icin bu veri araca yollanacak
+
 Drone-kit ten aracin konum bilgisi alinarak vehicle_point degiskenine atanacak
+
 temp point sayisi aradaki mesafeye gore belirlenecek
+
 Obtsacle lar moving ve stationary olarak ayrilacak
+
 stationary olanlar en bastan rotada waypoint eklenerek halledilecek
 boylece islem yuku olmaktan cikacaklar ve dict kullanimi kolaylasacak
+
 bunun icin programin basinda stationary ler icin bi fonksiyon yazmak gerekiyor
 movingler icinse eski temp_point sistemiyle devam ediyoruz simdilik
+
+Home point verisini otopilottan aldiktan sonra home un alt ini degistirebiliyoruz ancak 
+lat ve long u degistirmede sorun var nedense araca yuklenmiyo bu veriler
 
 
 '''
@@ -118,25 +128,13 @@ while not vehicle.home_location:
     cmds.wait_ready()
     if not vehicle.home_location:
         print " Waiting for home location ..."
-    time.sleep(1)
 # We have a home location, so print it!
 print "\n Home location: %s" % vehicle.home_location
 
-new_home_point = vehicle.location.global_frame
-new_home_point.lat = mission.home_pos['latitude']
-new_home_point.lon = mission.home_pos['longitude']
-new_home_point.alt = 0
-vehicle.home_location = new_home_point
+my_location = vehicle.location.global_frame
+my_location.alt = vehicle.location.global_frame.alt
+vehicle.home_location = my_location
 
-#my_location_alt = vehicle.location.global_frame
-#my_location_alt.lat = vehicle.location.global_frame.lat
-#my_location_alt.lon = vehicle.location.global_frame.lon
-#my_location_alt.alt = 222.0
-#vehicle.home_location = my_location_altss
-#vehicle.home_location.lat = -35.3632621765
-#vehicle.home_location.lon = 149.165237427
-#vehicle.home_location.alt = 222.0
-#Confirm current value on vehicle by re-downloading commands
 cmds = vehicle.commands
 cmds.download()
 cmds.wait_ready()
@@ -144,9 +142,6 @@ cmds.wait_ready()
 print "\n New Home location: %s" % vehicle.home_location
 
 
-
-
-
-
+# Sending mission data to vehicle
 
 
