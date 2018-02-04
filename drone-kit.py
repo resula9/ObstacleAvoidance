@@ -72,16 +72,16 @@ def get_temp_points(vehicle_position, reaching_point):
     return temp_points
 
 
-def get_distance(first_lat, first_lng, second_lat, second_lng):
+def get_distance(first_lat, first_lon, second_lat, second_lon):
     lat1 = first_lat / 180 * math.pi  # coordinate to radian
-    lng1 = first_lng / 180 * math.pi  # coordinate to radian
+    lon1 = first_lon / 180 * math.pi  # coordinate to radian
     lat2 = second_lat / 180 * math.pi  # coordinate to radian
-    lng2 = second_lng / 180 * math.pi  # coordinate to radian
+    lon2 = second_lon / 180 * math.pi  # coordinate to radian
     dlat = lat2 - lat1  # latitute difference in radian
-    dlong = lng2 - lng1  # longitute difference in radian
+    dlong = lon2 - lon1  # longitute difference in radian
 
-    a = math.pow(math.sin(dlat / 2), 2) + math.cos(lat1) * math.cos(lat2) \
-        * math.pow(math.sin(dlong / 2), 2)  # Haversine Formula
+    a = math.pow(math.sin(dlat / 2), 2) + math.cos(lat1) * math.cos(lat2) * \
+        math.pow(math.sin(dlong / 2), 2)  # Haversine Formula
     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))  # Haversine Formula
     distance = earth_radius * c
     return distance
@@ -108,6 +108,9 @@ connection_string = sitl.connection_string()
 print("Connecting to vehicle on: %s" % connection_string)
 vehicle = connect(connection_string, wait_ready=True)
 
+
+# SETTING HOME POINT WITH MISSIONS.JSON
+
 # Get Vehicle Home location - will be `None` until first set by autopilot
 while not vehicle.home_location:
     cmds = vehicle.commands
@@ -119,9 +122,24 @@ while not vehicle.home_location:
 # We have a home location, so print it!
 print "\n Home location: %s" % vehicle.home_location
 
-vehicle.home_location.lat = 41.1012845592485
-vehicle.home_location.lon = 29.0216517448425
-vehicle.home_location.alt = 82.5389051812199
+new_home_point = vehicle.location.global_frame
+new_home_point.lat = mission.home_pos['latitude']
+new_home_point.lon = mission.home_pos['longitude']
+new_home_point.alt = 0
+vehicle.home_location = new_home_point
+
+#my_location_alt = vehicle.location.global_frame
+#my_location_alt.lat = vehicle.location.global_frame.lat
+#my_location_alt.lon = vehicle.location.global_frame.lon
+#my_location_alt.alt = 222.0
+#vehicle.home_location = my_location_altss
+#vehicle.home_location.lat = -35.3632621765
+#vehicle.home_location.lon = 149.165237427
+#vehicle.home_location.alt = 222.0
+#Confirm current value on vehicle by re-downloading commands
+cmds = vehicle.commands
+cmds.download()
+cmds.wait_ready()
 
 print "\n New Home location: %s" % vehicle.home_location
 
