@@ -2,6 +2,7 @@
 import math
 import numpy as np
 import json
+import time
 import dronekit_sitl
 from dronekit import connect
 
@@ -55,6 +56,10 @@ mission = Mission(missiondata)
 #
 obstacle_file = open("obstacles.json", "r")
 obstacledata = obstacle_file.read()
+obstacledata = str(obstacledata).replace('altitude_msl', 'altitude')
+obstacledata = str(obstacledata).replace('sphere_radius', 'radius')
+obstacledata = str(obstacledata).replace('cylinder_height', 'altitude')
+obstacledata = str(obstacledata).replace('cylinder_radius', 'radius')
 obstacle = Obstacle(obstacledata)
 #
 
@@ -103,4 +108,27 @@ connection_string = sitl.connection_string()
 print("Connecting to vehicle on: %s" % connection_string)
 vehicle = connect(connection_string, wait_ready=True)
 
-print 'home position: %s', vehicle.home_location
+# Get Vehicle Home location - will be `None` until first set by autopilot
+while not vehicle.home_location:
+    cmds = vehicle.commands
+    cmds.download()
+    cmds.wait_ready()
+    if not vehicle.home_location:
+        print " Waiting for home location ..."
+    time.sleep(1)
+# We have a home location, so print it!
+print "\n Home location: %s" % vehicle.home_location
+
+vehicle.home_location.lat = 41.1012845592485
+vehicle.home_location.lon = 29.0216517448425
+vehicle.home_location.alt = 82.5389051812199
+
+print "\n New Home location: %s" % vehicle.home_location
+
+
+
+
+
+
+
+

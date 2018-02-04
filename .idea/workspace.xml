@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f833029-9084-4b72-8999-9d3eba084fe9" name="Default" comment="" />
+    <list default="true" id="1f833029-9084-4b72-8999-9d3eba084fe9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/drone-kit.py" afterPath="$PROJECT_DIR$/drone-kit.py" />
+      <change beforePath="$PROJECT_DIR$/freshstart.py" afterPath="$PROJECT_DIR$/freshstart.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,23 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="freshstart.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/freshstart.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="3" />
-              <folding>
-                <element signature="e#36#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="drone-kit.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drone-kit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="37" column="65" lean-forward="true" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
+            <state relative-caret-position="437">
+              <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
               <folding>
                 <element signature="e#34#45#0" expanded="true" />
               </folding>
@@ -394,25 +385,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reading_obtsacles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="21" column="90" lean-forward="true" selection-start-line="21" selection-start-column="90" selection-end-line="21" selection-end-column="90" />
+        <state relative-caret-position="637">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/freshstart.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="400">
+          <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
           <folding>
-            <element signature="e#36#47#0" expanded="true" />
+            <element signature="e#36#47#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/drone-kit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="37" column="65" lean-forward="true" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
+        <state relative-caret-position="437">
+          <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding>
             <element signature="e#34#45#0" expanded="true" />
           </folding>

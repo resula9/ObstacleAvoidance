@@ -51,6 +51,10 @@ mission = Mission(missiondata)
 #
 obstacle_file = open("obstacles.json", "r")
 obstacledata = obstacle_file.read()
+obstacledata = str(obstacledata).replace('altitude_msl', 'altitude')
+obstacledata = str(obstacledata).replace('sphere_radius', 'radius')
+obstacledata = str(obstacledata).replace('cylinder_height', 'altitude')
+obstacledata = str(obstacledata).replace('cylinder_radius', 'radius')
 obstacle = Obstacle(obstacledata)
 #
 
