@@ -1,9 +1,13 @@
 import dronekit_sitl
-from dronekit import connect
+from dronekit import connect, Command, Vehicle
 import time
+from pymavlink import mavutil
 
 
 def connect_vehicle(connection_string):
+
+    vehicle = Vehicle
+
     if connection_string == "sitl":
         sitl = dronekit_sitl.start_default()
         print("Connecting to vehicle on: %s" % connection_string)
@@ -54,32 +58,29 @@ def clear_mission(vehicle):
 
 def write_mission(vehicle, mission):
 
-    # Add file-format information
-    waypoints = 'QGC WPL 110\n'
-    home = vehicle.home_location
-    # SET HOME POINT
-    waypoints += "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (0, 1, 0, 16, 0, 0, 0, 0,
-                                                                       mission.home_pos['latitude'],
-                                                                       mission.home_pos['longitude'],
-                                                                       mission.home_pos['altitude'], 1)
+    cmd = [None]
+
     # ADD TAKEOFF POINT
-    waypoints += "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (0, 1, 0, 22, 0, 0, 0, 0,
-                                                                       mission.home_pos['latitude'],
-                                                                       mission.home_pos['longitude'],
-                                                                       mission.home_pos['altitude'], 1)
+    cmd.append(Command(0, 0, 0, vehicle.location.global_relative_frame, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0,
+                       0, 0, 0, 0, 0,
+                       mission.home_pos['latitude'],
+                       mission.home_pos['longitude'],
+                       mission.home_pos['altitude']))
 
     # ADD WAYPOINTS
     for i in range(len(mission.mission_waypoints)):
-        waypoints += "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (0, 1, 0, 16, 0, 0, 0, 0,
-                                                                           mission.mission_waypoints[i]['latitude'],
-                                                                           mission.mission_waypoints[i]['longitude'],
-                                                                           mission.mission_waypoints[i]['altitude'], 1)
+        cmd.append(Command(0, 0, 0, vehicle.location.global_relative_frame, mavutil.mavlink.MAV_CMD_NAV_WAYPOINT, 0,
+                           0, 0, 0, 0, 0,
+                           mission.mission_waypoints[i]['latitude'],
+                           mission.mission_waypoints[i]['longitude'],
+                           mission.mission_waypoints[i]['altitude']))
     # ADD LANDING POINT
-    waypoints += "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (0, 1, 0, 21, 0, 0, 0, 0,
-                                                                       mission.home_pos['latitude'],
-                                                                       mission.home_pos['longitude'],
-                                                                       mission.home_pos['altitude'], 1)
-    return waypoints
+    cmd.append(Command(0, 0, 0, vehicle.location.global_relative_frame, mavutil.mavlink.MAV_CMD_NAV_LAND, 0,
+                       0, 0, 0, 0, 0,
+                       mission.home_pos['latitude'],
+                       mission.home_pos['longitude'],
+                       mission.home_pos['altitude']))
+    return cmd
 
 
 def send_mission(vehicle, missionlist):
