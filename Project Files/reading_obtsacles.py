@@ -28,8 +28,12 @@ data = str(data).replace('altitude_msl', 'altitude')
 data = str(data).replace('sphere_radius', 'radius')
 data = str(data).replace('cylinder_height', 'altitude')
 data = str(data).replace('cylinder_radius', 'radius')
-
+file2 = open("missions.json", "r")
+data2 = file2.read()
 obstacle = Obstacle(data)
-print obstacle.stationary_obstacles[0].get('altitude')
-
+mission = Mission(data2)
+#print obstacle.stationary_obstacles[0].get('altitude')
+print mission.fly_zones[0]['boundary_pts'][0]['latitude']
+#print mission.home_pos['latitude']
+print mission['mission_waypoints']
 

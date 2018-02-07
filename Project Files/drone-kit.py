@@ -2,10 +2,12 @@
 import math
 import numpy as np
 import json
-import time
 import dronekit_sitl
-from dronekit import connect, Command
+from dronekit import connect
 import argparse
+
+# importing local python files
+import asd
 
 
 '''
@@ -29,6 +31,8 @@ lat ve long u degistirmede sorun var nedense araca yuklenmiyo bu veriler
 
 '''
 
+
+asd.print_as()
 
 class Mission(object):
 
@@ -74,6 +78,49 @@ obstacle = Obstacle(obstacledata)
 #
 
 
+def connect_vehicle(connection_string):
+    if connection_string == "sitl":
+        sitl = dronekit_sitl.start_default()
+        print("Connecting to vehicle on: %s" % connection_string)
+        connection_string = sitl.connection_string()
+        _vehicle = connect(connection_string, wait_ready=True)
+
+    else:
+        try:
+            print("Connecting to vehicle on: %s" % connection_string)
+            _vehicle = connect(connection_string, wait_ready=True)
+        except:
+            print "Vehicle is not connected!!"
+    return _vehicle
+
+
+def set_home():
+    pass
+
+
+def write_mission():
+    parser = argparse.ArgumentParser(description='Demonstrates mission import/export from a file.')
+    parser.add_argument('--connect',
+                        help="Vehicle connection target string. If not specified, SITL automatically started and used.")
+    args = parser.parse_args()
+
+    connection_string = args.connect
+    #sitl = None
+
+    # Start SITL if no connection string specified
+    if not connection_string:
+        import dronekit_sitl
+        sitl = dronekit_sitl.start_default()
+        connection_string = sitl.connection_string()
+
+    # Connect to the Vehicle
+    print 'Connecting to vehicle on: %s' % connection_string
+    vehicle = connect(connection_string, wait_ready=True)
+
+    # Check that vehicle is armable.
+    # This ensures home_location is set (needed when saving WP file)
+
+
 def get_temp_points(vehicle_position, reaching_point):
     for i in range(0, temp_point_number):
         temp_points[i, 0] = vehicle_position + (reaching_point[0] - vehicle_position[0]) / temp_point_number * i
@@ -111,18 +158,8 @@ def get_intersections(temp_points, obstacle):
                 print('obtacle is trouble')
 
 
-sitl = dronekit_sitl.start_default()
-connection_string = sitl.connection_string()
-
-# Connect to the Vehicle
-print("Connecting to vehicle on: %s" % connection_string)
-vehicle = connect(connection_string, wait_ready=True)
-
-
-# SETTING HOME POINT WITH MISSIONS.JSON
-
-# Get Vehicle Home location - will be `None` until first set by autopilot
-while not vehicle.home_location:
+vehicle = connect_vehicle('sitl')
+while not vehicle.home_location:  # Get Vehicle Home location - will be `None` until first set by autopilot
     cmds = vehicle.commands
     cmds.download()
     cmds.wait_ready()
@@ -140,8 +177,3 @@ cmds.download()
 cmds.wait_ready()
 
 print "\n New Home location: %s" % vehicle.home_location
-
-
-# Sending mission data to vehicle
-
-
