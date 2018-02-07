@@ -1,0 +1,10 @@
+'''
+Drone-kit ten aracin konum bilgisi alinarak vehicle_point degiskenine atanacak
+temp point sayisi aradaki mesafeye gore belirlenecek
+Obtsacle lar moving ve stationary olarak ayrilacak
+stationary olanlar en bastan rotada waypoint eklenerek halledilecek
+boylece islem yuku olmaktan cikacaklar ve dict kullanimi kolaylasacak
+bunun icin programin basinda stationary ler icin bi fonksiyon yazmak gerekiyor
+movingler icinse eski temp_point sistemiyle devam ediyoruz simdilik
+
+'''

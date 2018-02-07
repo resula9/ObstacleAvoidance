@@ -6,9 +6,6 @@ import dronekit_sitl
 from dronekit import connect
 import argparse
 
-# importing local python files
-import asd
-
 
 '''
 Waypoint verisi kullanilarak mission olusturulacak ve otonom ucus icin bu veri araca yollanacak
@@ -31,8 +28,6 @@ lat ve long u degistirmede sorun var nedense araca yuklenmiyo bu veriler
 
 '''
 
-
-asd.print_as()
 
 class Mission(object):
 
