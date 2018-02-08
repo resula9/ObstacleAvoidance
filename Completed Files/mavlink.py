@@ -25,8 +25,9 @@ def connect_vehicle(connection_string):
 
 def set_home(vehicle):
 
+    cmds = vehicle.commands
+
     while not vehicle.home_location:  # Get Vehicle Home location - will be `None` until first set by autopilot
-        cmds = vehicle.commands
         cmds.download()
         cmds.wait_ready()
         if not vehicle.home_location:
@@ -38,11 +39,11 @@ def set_home(vehicle):
     my_location.alt = vehicle.location.global_frame.alt
     vehicle.home_location = my_location
 
-    cmds = vehicle.commands
     cmds.download()
     cmds.wait_ready()
 
     print "\n New Home location: %s" % vehicle.home_location
+    return my_location
 
 
 def clear_mission(vehicle):
@@ -53,12 +54,12 @@ def clear_mission(vehicle):
     except Exception as e:
         print 'Mission couldn`t be deleted Error: %s', e
     else:
-        print 'mission is successfully deleted from vehicle'
+        print 'Mission is successfully deleted from vehicle'
 
 
 def write_mission(vehicle, mission):
 
-    cmd = [None]
+    cmd = list()
 
     # ADD TAKEOFF POINT
     cmd.append(Command(0, 0, 0, vehicle.location.global_relative_frame, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0,
@@ -84,18 +85,22 @@ def write_mission(vehicle, mission):
 
 
 def send_mission(vehicle, missionlist):
+
     cmds = vehicle.commands
-    connect_vehicle('sitl')
-    # Check that vehicle is armable.-0
+
     # This ensures home_location is set (needed when saving WP file)
-    while not vehicle.is_armable:
-         print " Waiting for vehicle to initialise..."
-         time.sleep(1)
+    if not vehicle.home_location:
+        print " Home location is not set. Pls set home first!"
+        return
+    try:
+        # Add new mission to vehicle
+        for command in missionlist:
+            cmds.add(command)
+        print ' Upload mission'
+        vehicle.commands.upload()
 
-    # Add new mission to vehicle
-    for command in missionlist:
-        cmds.add(command)
-    print ' Upload mission'
-    vehicle.commands.upload()
+    except Exception as e:
+        print 'Couldn`t send the mission. Vehicle is not ready!! Error: %s', e
 
 
+connect_vehicle('sitl')
