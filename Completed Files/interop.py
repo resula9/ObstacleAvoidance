@@ -1,5 +1,7 @@
 import json
 
+global mission
+global obstacle
 
 class Mission(object):
 
@@ -22,18 +24,19 @@ class Obstacle(object):
             self.__dict__['stationary_obstacles'][i]['altitude'] = str(estimated_altitude)
 
 
-#
-mission_file = open("missions.json", "r")
-missiondata = mission_file.read()
-mission = Mission(missiondata)
-#
-obstacle_file = open("obstacles.json", "r")
-obstacledata = obstacle_file.read()
-obstacledata = str(obstacledata).replace('altitude_msl', 'altitude')
-obstacledata = str(obstacledata).replace('sphere_radius', 'radius')
-obstacledata = str(obstacledata).replace('cylinder_height', 'altitude')
-obstacledata = str(obstacledata).replace('cylinder_radius', 'radius')
-obstacle = Obstacle(obstacledata)
-#
-
-
+def start():
+    #
+    global mission
+    mission_file = open("missions.json", "r")
+    missiondata = mission_file.read()
+    mission = Mission(missiondata)
+    #
+    global obstacle
+    obstacle_file = open("obstacles.json", "r")
+    obstacledata = obstacle_file.read()
+    obstacledata = str(obstacledata).replace('altitude_msl', 'altitude')
+    obstacledata = str(obstacledata).replace('sphere_radius', 'radius')
+    obstacledata = str(obstacledata).replace('cylinder_height', 'altitude')
+    obstacledata = str(obstacledata).replace('cylinder_radius', 'radius')
+    obstacle = Obstacle(obstacledata)
+    #
