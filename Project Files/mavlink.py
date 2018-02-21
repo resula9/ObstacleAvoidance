@@ -9,7 +9,6 @@ def connect_vehicle(connection_string):
         print("Connecting to vehicle on: %s" % connection_string)
         connection_string = sitl.connection_string()
         vehicle = connect(connection_string, wait_ready=True)
-
     else:
         try:
             print("Connecting to vehicle on: %s" % connection_string)

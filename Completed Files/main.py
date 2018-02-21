@@ -2,6 +2,7 @@
 import os
 from dronekit import Vehicle, VehicleMode
 import numpy as np
+import time
 # Importing Local Python Files
 import mavlink
 import interop
@@ -9,9 +10,6 @@ import sda
 import airdrop
 import odlc
 import off_axis
-
-global vehicle
-vehicle = Vehicle
 
 interop.start()
 
@@ -24,6 +22,13 @@ mavlink.clear_mission()
 commands = mavlink.write_mission(mission=interop.mission)
 mavlink.send_mission(commands)
 
-vehicle = VehicleMode('AUTO')
+#vehicle = VehicleMode('AUTO')
 
-print vehicle.mode####ATTRIBUTE LISTENER
+mavlink.vehicle.armed = True
+time.sleep(5)
+
+
+
+#mavlink.vehicle.simple_takeoff(30)
+#print vehicle.mode####ATTRIBUTE LISTENER
+
