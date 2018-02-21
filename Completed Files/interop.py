@@ -3,6 +3,7 @@ import json
 global mission
 global obstacle
 
+
 class Mission(object):
 
     def __init__(self, json_content):

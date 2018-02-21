@@ -1,12 +1,15 @@
 import dronekit_sitl
-from dronekit import connect, Command, Vehicle
+from dronekit import connect, Command, Vehicle, VehicleMode, LocationGlobalRelative
 from pymavlink import mavutil
 import time
+import interop
+import sda
 
 vehicle = Vehicle
 
 
 def wp_file_read(wp_file_name):
+
     print "\nReading mission from file: %s" % wp_file_name
     cmd = []
     with open(wp_file_name) as f:
@@ -16,20 +19,25 @@ def wp_file_read(wp_file_name):
                     raise Exception('File is not supported WP version')
             else:
                 linearray = line.split('\t')
-                ln_index = int(linearray[0])
-                ln_currentwp = int(linearray[1])
-                ln_frame = int(linearray[2])
-                ln_command = int(linearray[3])
-                ln_param1 = float(linearray[4])
-                ln_param2 = float(linearray[5])
-                ln_param3 = float(linearray[6])
-                ln_param4 = float(linearray[7])
-                ln_param5 = float(linearray[8])
-                ln_param6 = float(linearray[9])
-                ln_param7 = float(linearray[10])
-                ln_autocontinue = int(linearray[11].strip())
-                command = Command(0, 0, 0, ln_frame, ln_command, ln_currentwp, ln_autocontinue, ln_param1, ln_param2,
-                                  ln_param3, ln_param4, ln_param5, ln_param6, ln_param7)
+                if linearray[3] == '16':
+                    command_type = mavutil.mavlink.MAV_CMD_NAV_WAYPOINT
+                elif linearray[3] == '206':
+                    command_type = mavutil.mavlink.MAV_CMD_DO_SET_CAM_TRIGG_DIST
+                elif linearray[3] == '201':
+                    command_type = mavutil.mavlink.MAV_CMD_DO_SET_ROI
+                elif linearray[3] == '181':
+                    command_type = mavutil.mavlink.MAV_CMD_DO_SET_RELAY
+                elif linearray[3] == '22':
+                    command_type = mavutil.mavlink.MAV_CMD_NAV_TAKEOFF
+                elif linearray[3] == '21':
+                    command_type = mavutil.mavlink.MAV_CMD_NAV_LAND
+                else:
+                    print 'Command is undefined!!'
+                    raise Exception
+
+                command = Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
+                                  command_type, 0, 0, 0, 0, 0, 0, float(linearray[8]),
+                                  float(linearray[9]), float(linearray[10]))
                 cmd.append(command)
     return cmd
 
@@ -142,3 +150,35 @@ def arm_vehicle():
         vehicle.armed = True
     else:
         print 'Vehicle is not armable!!'
+
+
+def off_axis():
+
+    global vehicle
+
+    off_axis_point = LocationGlobalRelative
+    off_axis_point.lat = interop.mission.off_axis_odlc_pos['latitude']
+    off_axis_point.lon = interop.mission.off_axis_odlc_pos['longitude']
+    off_axis_point.alt = 1
+
+    vehicle.gimbal.target_location(off_axis_point)
+
+
+def airdrop():
+
+    global vehicle
+
+    airdrop_pos = LocationGlobalRelative
+    airdrop_pos.lat = interop.mission.air_drop_pos['latitude']
+    airdrop_pos.lon = interop.mission.air_drop_pos['longitude']
+
+    if sda.get_distance(vehicle.location.global_relative_frame.lat, vehicle.location.global_relative_frame.lon,
+                        airdrop_pos.lat, airdrop_pos.lon) < 5:
+        vehicle.commands.add(
+            Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_LAND, 0,
+                    0, 0, 0, 0, 0,
+                    airdrop_pos.lat,
+                    airdrop_pos.lon,
+                    1))
+
+        vehicle.commands.upload()

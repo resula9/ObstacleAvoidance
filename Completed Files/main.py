@@ -7,25 +7,26 @@ import time
 import mavlink
 import interop
 import sda
-import airdrop
 import odlc
-import off_axis
+import antennatracker
 
 interop.start()
 
-vehicle = mavlink.connect_vehicle('sitl')
+mavlink.connect_vehicle('sitl')
 
 mavlink.set_home()
 
 mavlink.clear_mission()
-
-commands = mavlink.write_mission(mission=interop.mission)
+a
+#commands = mavlink.write_mission(mission=interop.mission)
+commands = mavlink.wp_file_read('mission.txt')
 mavlink.send_mission(commands)
 
-#vehicle = VehicleMode('AUTO')
+mavlink.arm_vehicle()
 
-mavlink.vehicle.armed = True
-time.sleep(5)
+mavlink.vehicle = VehicleMode('AUTO')
+
+time.sleep(15)
 
 
 

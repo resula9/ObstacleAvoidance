@@ -1,19 +1,20 @@
 import math
 import mavlink
 import sda
+import interop
 
-#tracking = True
+tracking = True
 # GERCEK KONUMLARI KULLAN
 
 home = {}
-home.lat = 1
-home.lon = 1
-home.alt = 1
+home.lat = interop.mission.home_pos['latitude']
+home.lon = interop.mission.home_pos['latitude']
+home.alt = 0
 
 target = {}
-target.lat = 2
-target.lon = 2
-target.alt = 2
+target.lat = mavlink.vehicle.location.global_relative_frame.lat
+target.lon = mavlink.vehicle.location.global_relative_frame.lon
+target.alt = mavlink.vehicle.location.global_relative_frame.alt
 
 
 def hor_angle():
@@ -36,7 +37,11 @@ def ver_angle():
     return angle
 
 
-while True:
+while tracking:
 
     h_angle = hor_angle()
     v_angle = ver_angle()
+
+    print 'AT Horizontal Angle: %f', hor_angle()
+    print 'AT Vertical Angle: %f', ver_angle()
+
