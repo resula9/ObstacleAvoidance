@@ -10,6 +10,8 @@ vehicle = Vehicle
 
 def wp_file_read(wp_file_name):
 
+    global vehicle
+
     print "\nReading mission from file: %s" % wp_file_name
     cmd = []
     with open(wp_file_name) as f:

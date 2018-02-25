@@ -1,8 +1,5 @@
 import json
 
-global mission
-global obstacle
-
 
 class Mission(object):
 
