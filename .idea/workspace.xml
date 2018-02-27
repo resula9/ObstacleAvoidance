@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f833029-9084-4b72-8999-9d3eba084fe9" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Project Files/__init__.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Completed Files/interop.py" afterPath="$PROJECT_DIR$/Completed Files/interop.py" />
+      <change beforePath="$PROJECT_DIR$/Completed Files/antennatracker.py" afterPath="$PROJECT_DIR$/Project Files/antennatracker.py" />
+      <change beforePath="$PROJECT_DIR$/Completed Files/interop.py" afterPath="$PROJECT_DIR$/Project Files/interop.py" />
       <change beforePath="$PROJECT_DIR$/Completed Files/main.py" afterPath="$PROJECT_DIR$/Completed Files/main.py" />
       <change beforePath="$PROJECT_DIR$/Completed Files/mavlink.py" afterPath="$PROJECT_DIR$/Completed Files/mavlink.py" />
-      <change beforePath="$PROJECT_DIR$/Completed Files/mavproxy.py" afterPath="$PROJECT_DIR$/Completed Files/mavproxy.py" />
+      <change beforePath="$PROJECT_DIR$/Project Files/qwe.py" afterPath="$PROJECT_DIR$/Project Files/qwe.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,23 +19,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="antennatracker.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Completed Files/antennatracker.py">
+      <file leaf-file-name="mavlink.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Completed Files/mavlink.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state relative-caret-position="-7930">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="interop.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Completed Files/interop.py">
+      <file leaf-file-name="sda.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Completed Files/sda.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1600">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -42,32 +44,10 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Completed Files/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="1040">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
-                <element signature="e#12#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="odlc.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Completed Files/odlc.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mavlink.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Completed Files/mavlink.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="179" column="16" lean-forward="true" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#12#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,6 +83,8 @@
       <find>Upload</find>
       <find>upload</find>
       <find>mission</find>
+      <find>interop</find>
+      <find>inter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,7 +119,6 @@
         <option value="$PROJECT_DIR$/Completed Files/sda.py" />
         <option value="$PROJECT_DIR$/Project Files/write_mission.py" />
         <option value="$PROJECT_DIR$/Project Files/Aaa" />
-        <option value="$PROJECT_DIR$/Project Files/qwe.py" />
         <option value="$PROJECT_DIR$/Project Files/deneme.py" />
         <option value="$PROJECT_DIR$/Completed Files/off-axis.py" />
         <option value="$PROJECT_DIR$/Completed Files/odlc.py" />
@@ -145,18 +126,19 @@
         <option value="$PROJECT_DIR$/Project Files/mavlink.py" />
         <option value="$PROJECT_DIR$/Project Files/adsasd.py" />
         <option value="$PROJECT_DIR$/Completed Files/mission.txt" />
-        <option value="$PROJECT_DIR$/Completed Files/antennatracker.py" />
         <option value="$PROJECT_DIR$/Completed Files/off_axis.py" />
         <option value="$PROJECT_DIR$/Completed Files/mavproxy.py" />
+        <option value="$PROJECT_DIR$/Project Files/qwe.py" />
         <option value="$PROJECT_DIR$/Completed Files/interop.py" />
+        <option value="$PROJECT_DIR$/Completed Files/antennatracker.py" />
         <option value="$PROJECT_DIR$/Completed Files/main.py" />
         <option value="$PROJECT_DIR$/Completed Files/mavlink.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1089" />
-    <option name="y" value="59" />
+    <option name="x" value="11144" />
+    <option name="y" value="2" />
     <option name="width" value="2426" />
     <option name="height" value="2196" />
   </component>
@@ -178,8 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,6 +176,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,12 +185,12 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\oguz\PycharmProjects\ObstacleAvoidance\Project Files" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\oguz\PycharmProjects\ObstacleAvoidance\Project Files" />
       <recent name="C:\Users\oguz\PycharmProjects\ObstacleAvoidance\Completed Files" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oguz\PycharmProjects\ObstacleAvoidance\Project Files" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -223,7 +205,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.qwe">
     <configuration name="adsasd" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -323,11 +305,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.adsasd" />
-        <item index="2" class="java.lang.String" itemvalue="Python.deneme" />
-        <item index="3" class="java.lang.String" itemvalue="Python.mavlink" />
-        <item index="4" class="java.lang.String" itemvalue="Python.qwe" />
+        <item index="0" class="java.lang.String" itemvalue="Python.qwe" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.adsasd" />
+        <item index="3" class="java.lang.String" itemvalue="Python.deneme" />
+        <item index="4" class="java.lang.String" itemvalue="Python.mavlink" />
       </list>
     </recent_temporary>
   </component>
@@ -357,10 +339,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
+    <frame x="9584" y="-16" width="4832" height="2632" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12135417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110416666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32556817" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -481,13 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project Files/qwe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2323">
-          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/dronekit_sitl/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3510">
@@ -518,13 +493,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Completed Files/example_mission.txt" />
-    <entry file="file://$PROJECT_DIR$/Completed Files/sda.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Completed Files/mission.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1520">
@@ -620,18 +588,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Completed Files/interop.py">
+    <entry file="file://$PROJECT_DIR$/Project Files/qwe.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="480">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project Files/interop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Completed Files/antennatracker.py">
+    <entry file="file://$PROJECT_DIR$/Project Files/antennatracker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        <state relative-caret-position="400">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -640,21 +615,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Completed Files/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="1040">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <element signature="e#12#21#0" expanded="true" />
+            <element signature="e#12#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Completed Files/mavlink.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="179" column="16" lean-forward="true" selection-start-line="179" selection-start-column="16" selection-end-line="179" selection-end-column="16" />
+        <state relative-caret-position="-7930">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Completed Files/sda.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

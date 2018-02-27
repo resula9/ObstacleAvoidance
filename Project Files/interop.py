@@ -1,5 +1,8 @@
 import json
 
+global mission
+global obstacle
+
 
 class Mission(object):
 
@@ -22,7 +25,7 @@ class Obstacle(object):
             self.__dict__['stationary_obstacles'][i]['altitude'] = str(estimated_altitude)
 
 
-def start():
+def start_interop():
     #
     global mission
     mission_file = open("missions.json", "r")

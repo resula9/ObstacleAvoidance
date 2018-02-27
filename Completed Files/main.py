@@ -1,16 +1,12 @@
 # MAIN CODE
-import os
-from dronekit import Vehicle, VehicleMode
-import numpy as np
+from dronekit import VehicleMode
 import time
 # Importing Local Python Files
 import mavlink
-import interop
-import sda
-import odlc
+
 #import antennatracker
 
-interop.start()
+mavlink.start_interop()
 
 mavlink.connect_vehicle('sitl')
 
