@@ -8,10 +8,33 @@ import math
 import sda
 import json
 
-global mission
-global obstacle
 
+class Mission(object):
+
+    def __init__(self, json_content):
+        data = json.loads(json_content)
+        for key, value in data.items():
+            self.__dict__[key] = value
+
+
+class Obstacle(object):
+
+    def __init__(self, json_content):
+        data = json.loads(json_content)
+        for key, value in data.items():
+            self.__dict__[key] = value
+        for i in range (0, len(self.__dict__['stationary_obstacles'])):
+            real_height = self.stationary_obstacles[i].get('altitude')
+            cylinder_radius = self.stationary_obstacles[i].get('radius')
+            estimated_altitude = int(real_height) - int(cylinder_radius)
+            self.__dict__['stationary_obstacles'][i]['altitude'] = str(estimated_altitude)
+
+
+# Classes
 vehicle = Vehicle
+
+mission = Mission
+obstacle = Obstacle
 
 
 def antenna_tracker():
@@ -45,27 +68,6 @@ def antenna_tracker():
 
         print 'AT Horizontal Angle: %f', hor_angle
         print 'AT Vertical Angle: %f', ver_angle
-
-
-class Mission(object):
-
-    def __init__(self, json_content):
-        data = json.loads(json_content)
-        for key, value in data.items():
-            self.__dict__[key] = value
-
-
-class Obstacle(object):
-
-    def __init__(self, json_content):
-        data = json.loads(json_content)
-        for key, value in data.items():
-            self.__dict__[key] = value
-        for i in range (0, len(self.__dict__['stationary_obstacles'])):
-            real_height = self.stationary_obstacles[i].get('altitude')
-            cylinder_radius = self.stationary_obstacles[i].get('radius')
-            estimated_altitude = int(real_height) - int(cylinder_radius)
-            self.__dict__['stationary_obstacles'][i]['altitude'] = str(estimated_altitude)
 
 
 def start_interop():
@@ -244,7 +246,7 @@ def off_axis():
     vehicle.gimbal.target_location(off_axis_point)
 
 
-def airdrop():
+def airdrop():# COK SALAKCA BI KISIM GERCEKTEN!!!!!!!!!!
 
     global vehicle
 
@@ -252,13 +254,20 @@ def airdrop():
     airdrop_pos.lat = mission.air_drop_pos['latitude']
     airdrop_pos.lon = mission.air_drop_pos['longitude']
 
-    if sda.get_distance(vehicle.location.global_relative_frame.lat, vehicle.location.global_relative_frame.lon,
-                        airdrop_pos.lat, airdrop_pos.lon) < 5:
-        vehicle.commands.add(
-            Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_LAND, 0,
-                    0, 0, 0, 0, 0,
-                    airdrop_pos.lat,
-                    airdrop_pos.lon,
-                    1))
+    # Callback to print the location in global frame
+    def location_callback(self, attr_name):
 
-        vehicle.commands.upload()
+        if sda.get_distance(vehicle.location.attr_name.lat, vehicle.location.attr_name.lon,
+                            airdrop_pos.lat, airdrop_pos.lon) < 10:
+            vehicle.commands.add(
+                Command(0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_LAND, 0,
+                        0, 0, 0, 0, 0,
+                        airdrop_pos.lat,
+                        airdrop_pos.lon,
+                        1))
+
+            vehicle.commands.upload()
+
+    # Add observer for the vehicle's current location
+    vehicle.add_attribute_listener('global_relative_frame', location_callback)
+

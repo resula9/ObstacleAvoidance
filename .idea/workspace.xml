@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f833029-9084-4b72-8999-9d3eba084fe9" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Project Files/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Completed Files/asd.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Completed Files/antennatracker.py" afterPath="$PROJECT_DIR$/Project Files/antennatracker.py" />
-      <change beforePath="$PROJECT_DIR$/Completed Files/interop.py" afterPath="$PROJECT_DIR$/Project Files/interop.py" />
       <change beforePath="$PROJECT_DIR$/Completed Files/main.py" afterPath="$PROJECT_DIR$/Completed Files/main.py" />
       <change beforePath="$PROJECT_DIR$/Completed Files/mavlink.py" afterPath="$PROJECT_DIR$/Completed Files/mavlink.py" />
-      <change beforePath="$PROJECT_DIR$/Project Files/qwe.py" afterPath="$PROJECT_DIR$/Project Files/qwe.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,20 +19,8 @@
       <file leaf-file-name="mavlink.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Completed Files/mavlink.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7930">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sda.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Completed Files/sda.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="48">
+              <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -44,8 +29,20 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Completed Files/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="480">
+              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <folding>
+                <element signature="e#12#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asd.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Completed Files/asd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1048">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#12#44#0" expanded="true" />
               </folding>
@@ -84,7 +81,9 @@
       <find>upload</find>
       <find>mission</find>
       <find>interop</find>
+      <find>inerop</find>
       <find>inter</find>
+      <find>dia</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,7 +112,6 @@
         <option value="$PROJECT_DIR$/asd.py" />
         <option value="$PROJECT_DIR$/drone-kit.py" />
         <option value="$PROJECT_DIR$/Completed Files/dronekit.py" />
-        <option value="$PROJECT_DIR$/Completed Files/asd.py" />
         <option value="$PROJECT_DIR$/Completed Files/drone-kit.py" />
         <option value="$PROJECT_DIR$/Project Files/drone-kit.py" />
         <option value="$PROJECT_DIR$/Completed Files/sda.py" />
@@ -133,14 +131,15 @@
         <option value="$PROJECT_DIR$/Completed Files/antennatracker.py" />
         <option value="$PROJECT_DIR$/Completed Files/main.py" />
         <option value="$PROJECT_DIR$/Completed Files/mavlink.py" />
+        <option value="$PROJECT_DIR$/Completed Files/asd.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="11144" />
-    <option name="y" value="2" />
-    <option name="width" value="2426" />
-    <option name="height" value="2196" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="9584" />
+    <option name="y" value="-16" />
+    <option name="width" value="3866" />
+    <option name="height" value="2073" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -205,7 +204,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.qwe">
+  <component name="RunManager" selected="Python.asd">
     <configuration name="adsasd" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -219,6 +218,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ObstacleAvoidance" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Project Files/adsasd.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="asd" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Completed Files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ObstacleAvoidance" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Completed Files/asd.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -243,7 +260,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_OPTIONS" value="dia" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
@@ -255,24 +272,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ObstacleAvoidance" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Completed Files/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="mavlink" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Completed Files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ObstacleAvoidance" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Completed Files/mavlink.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -300,16 +299,16 @@
       <item index="0" class="java.lang.String" itemvalue="Python.deneme" />
       <item index="1" class="java.lang.String" itemvalue="Python.adsasd" />
       <item index="2" class="java.lang.String" itemvalue="Python.qwe" />
-      <item index="3" class="java.lang.String" itemvalue="Python.mavlink" />
-      <item index="4" class="java.lang.String" itemvalue="Python.main" />
+      <item index="3" class="java.lang.String" itemvalue="Python.main" />
+      <item index="4" class="java.lang.String" itemvalue="Python.asd" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.qwe" />
+        <item index="0" class="java.lang.String" itemvalue="Python.asd" />
         <item index="1" class="java.lang.String" itemvalue="Python.main" />
-        <item index="2" class="java.lang.String" itemvalue="Python.adsasd" />
-        <item index="3" class="java.lang.String" itemvalue="Python.deneme" />
-        <item index="4" class="java.lang.String" itemvalue="Python.mavlink" />
+        <item index="2" class="java.lang.String" itemvalue="Python.qwe" />
+        <item index="3" class="java.lang.String" itemvalue="Python.adsasd" />
+        <item index="4" class="java.lang.String" itemvalue="Python.deneme" />
       </list>
     </recent_temporary>
   </component>
@@ -339,19 +338,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="9584" y="-16" width="4832" height="2632" extended-state="6" />
+    <frame x="9584" y="-16" width="4832" height="2632" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110416666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32556817" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3573913" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35795453" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989991" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39943182" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -440,7 +439,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project Files/asd.py" />
-    <entry file="file://$PROJECT_DIR$/Completed Files/asd.py" />
     <entry file="file://$PROJECT_DIR$/Completed Files/drone-kit.py" />
     <entry file="file://$PROJECT_DIR$/Project Files/drone-kit.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -548,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,7 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,37 +603,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Completed Files/sda.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Completed Files/mavlink.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Completed Files/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="480">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
             <element signature="e#12#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Completed Files/mavlink.py">
+    <entry file="file://$PROJECT_DIR$/Completed Files/asd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7930">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="1048">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#12#44#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Completed Files/sda.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
